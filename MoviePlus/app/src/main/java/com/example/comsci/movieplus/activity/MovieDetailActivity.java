@@ -98,6 +98,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         public void onClick(View view) {
             Intent intent = new Intent(MovieDetailActivity.this, SeatSelectActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("id", movieId);
             startActivity(intent);
         }
     };

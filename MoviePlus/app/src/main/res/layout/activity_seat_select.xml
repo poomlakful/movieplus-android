@@ -81,6 +81,7 @@
                 android:background="#fac72d"
                 android:gravity="center"
                 android:text="SCREEN"
+                android:textColor="#000"
                 android:layout_width="match_parent"
                 android:layout_height="30dp" />
             <ImageView
@@ -93,7 +94,8 @@
                 android:textSize="18sp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="ToTal Price"
+                android:textColor="#000"
+                android:text="Total Price"
                 android:layout_width="150dp"
                 android:layout_height="30dp" />
             <Button

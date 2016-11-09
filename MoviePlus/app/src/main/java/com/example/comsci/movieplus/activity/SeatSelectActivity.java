@@ -12,16 +12,24 @@ import com.example.comsci.movieplus.R;
 
 public class SeatSelectActivity extends AppCompatActivity {
 
+    int movieId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat_select);
+        initInstances();
+    }
 
+    private void initInstances() {
         //Set action bar
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.action_bar);
         TextView tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvTitle.setText("Seat Select");
+
+        Intent intent = getIntent();
+        movieId = intent.getIntExtra("id", 0);
 
         Button btn = (Button) findViewById(R.id.btnConfirm);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -29,7 +37,9 @@ public class SeatSelectActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SeatSelectActivity.this, PaymentActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("id", movieId);
                 startActivity(intent);
+                //finish();
             }
         });
     }
