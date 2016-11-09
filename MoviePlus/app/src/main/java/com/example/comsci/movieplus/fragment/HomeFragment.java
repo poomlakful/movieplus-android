@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
     private AdapterView.OnItemClickListener gridViewListener = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView<?> parent, View v,
                                 int position, long id) {
-            Toast.makeText(getContext(), "" + position,
+            Toast.makeText(getContext(), "Movie " + position,
                     Toast.LENGTH_SHORT).show();
         }
     };

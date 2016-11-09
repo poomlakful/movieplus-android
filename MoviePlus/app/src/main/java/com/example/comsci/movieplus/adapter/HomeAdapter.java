@@ -35,14 +35,12 @@ public class HomeAdapter extends BaseAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        TextView textView = null;
-        ImageView imageView = null;
         if(convertView == null) {
             LayoutInflater mInflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = mInflater.inflate(R.layout.viewgroup_movie_item, parent, false);
-            textView = (TextView) convertView.findViewById(R.id.tvMovieItemName);
-            imageView = (ImageView) convertView.findViewById(R.id.ivMovieItemImage);
         }
+        TextView textView = (TextView) convertView.findViewById(R.id.tvMovieItemName);
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.ivMovieItemImage);
         try {
             textView.setText("Movie " + position);
             imageView.setBackgroundResource(R.drawable.poster);
