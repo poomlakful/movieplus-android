@@ -1,6 +1,7 @@
 package com.example.comsci.movieplus.manager;
 
 import com.example.comsci.movieplus.dao.MovieItemDao;
+import com.example.comsci.movieplus.dao.ShowtimeItemDao;
 
 import java.util.List;
 
@@ -20,5 +21,5 @@ public interface ApiService {
     Call<MovieItemDao> getMovieById(@Path("id") int id);
 
     @GET("showtime/{cinemaId}")
-    Call<List<MovieItemDao>> getMovieByCinemaId(@Path("cinemaId") int cinemaId);
+    Call<List<ShowtimeItemDao>> getMovieByCinemaId(@Path("cinemaId") int cinemaId);
 }

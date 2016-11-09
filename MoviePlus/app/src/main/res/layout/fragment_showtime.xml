@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_gravity="center"
-        android:textColor="#fff"
-        android:textSize="30sp"
-        android:text="This is Showtime page"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</FrameLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:text="Cinema"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:layout_marginRight="20dp"
+            android:background="#787878"
+            android:layout_gravity="center_vertical"
+            android:textAlignment="center"
+            android:id="@+id/snCinema"
+            android:entries="@array/cinema_list"
+            android:prompt="@string/choose_cinema"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_gravity="bottom"
+        android:background="#2e2e2e" />
+    <ListView
+        android:id="@+id/lvShowtime"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

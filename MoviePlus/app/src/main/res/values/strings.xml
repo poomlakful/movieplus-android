@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Movie Plus</string>
+    <string name="choose_cinema">Choose a cinema</string>
+    <string-array name="cinema_list">
+        <item>Cinema-001</item>
+        <item>Cinema-002</item>
+        <item>Cinema-003</item>
+    </string-array>
 </resources>
