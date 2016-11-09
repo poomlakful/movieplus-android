@@ -25,21 +25,21 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        initInstances();
+        initInstances(rootView);
         return rootView;
     }
 
-    private void initInstances() {
-//        gridview = (GridView) getView().findViewById(R.id.grid_home);
-//        gridview.setAdapter(new HomeAdapter(getContext()));
-//        gridview.setOnItemClickListener(gridViewListener);
+    private void initInstances(View rootView) {
+        gridview = (GridView) rootView.findViewById(R.id.grid_home);
+        gridview.setAdapter(new HomeAdapter(getContext()));
+        gridview.setOnItemClickListener(gridViewListener);
     }
 
-//    private AdapterView.OnItemClickListener gridViewListener = new AdapterView.OnItemClickListener() {
-//        public void onItemClick(AdapterView<?> parent, View v,
-//                                int position, long id) {
-//            Toast.makeText(getContext(), "" + position,
-//                    Toast.LENGTH_SHORT).show();
-//        }
-//    };
+    private AdapterView.OnItemClickListener gridViewListener = new AdapterView.OnItemClickListener() {
+        public void onItemClick(AdapterView<?> parent, View v,
+                                int position, long id) {
+            Toast.makeText(getContext(), "" + position,
+                    Toast.LENGTH_SHORT).show();
+        }
+    };
 }
