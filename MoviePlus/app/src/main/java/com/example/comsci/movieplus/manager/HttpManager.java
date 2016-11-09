@@ -2,7 +2,20 @@ package com.example.comsci.movieplus.manager;
 
 
 import android.content.Context;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
+
+import java.lang.reflect.Type;
+import java.util.Date;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by comsci on 9/11/2559.
@@ -26,7 +39,8 @@ public class HttpManager {
 
         //Building Api Service
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("localhost:5555/")
+                .baseUrl("http://161.246.135.33:5555/")
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         service = retrofit.create(ApiService.class);

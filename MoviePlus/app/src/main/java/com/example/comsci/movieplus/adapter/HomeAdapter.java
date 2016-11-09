@@ -1,10 +1,19 @@
 package com.example.comsci.movieplus.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.example.comsci.movieplus.R;
+import com.example.comsci.movieplus.dao.MovieItemDao;
+
+import java.util.List;
 
 /**
  * Created by comsci on 9/11/2559.
@@ -13,12 +22,15 @@ import android.widget.TextView;
 public class HomeAdapter extends BaseAdapter {
     private Context mContext;
 
-    public HomeAdapter(Context c) {
+    List<MovieItemDao> mMovieList;
+
+    public HomeAdapter(Context c, List<MovieItemDao> m) {
         mContext = c;
+        mMovieList = m;
     }
 
     public int getCount() {
-        return 20;
+        return mMovieList.size();
     }
 
     public Object getItem(int position) {
@@ -30,15 +42,20 @@ public class HomeAdapter extends BaseAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        TextView textView;
-        if(convertView == null){
-            textView = new TextView(mContext);
+        if(convertView == null) {
+            LayoutInflater mInflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = mInflater.inflate(R.layout.viewgroup_movie_item, parent, false);
         }
-        else{
-            textView = (TextView) convertView;
-        }
-        textView.setText("Position "+position);
-        return textView;
+        TextView textView = (TextView) convertView.findViewById(R.id.tvMovieItemName);
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.ivMovieItemImage);
+        try {
+            textView.setText(mMovieList.get(position).getName());
+            Glide.with(mContext)
+                    .load(mMovieList.get(position).getPoster())
+                    .placeholder(R.drawable.poster)
+                    .into(imageView);
+        } catch (NullPointerException e) {}
+        return convertView;
 
     }
 }
