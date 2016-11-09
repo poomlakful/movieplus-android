@@ -55,7 +55,7 @@ public class ShowtimeAdapter extends BaseAdapter {
             tvTheatreName.setText(mShowtimeList.get(position).getTheatreName());
             tvMovieName.setText(mShowtimeList.get(position).getName());
             tvDirector.setText(mShowtimeList.get(position).getDirector());
-            tvTime.setText(mShowtimeList.get(position).getTime());
+            tvTime.setText(mShowtimeList.get(position).getTime()+" minute");
             List<String> showtime = mShowtimeList.get(position).getShowTime();
             String showtimeText = "";
             for(int i = 0; i<showtime.size();i++) showtimeText += showtime.get(i) + " ";
