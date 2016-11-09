@@ -9,7 +9,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.comsci.movieplus.R;
+import com.example.comsci.movieplus.dao.MovieItemDao;
+
+import java.util.List;
 
 /**
  * Created by comsci on 9/11/2559.
@@ -18,12 +22,15 @@ import com.example.comsci.movieplus.R;
 public class HomeAdapter extends BaseAdapter {
     private Context mContext;
 
-    public HomeAdapter(Context c) {
+    List<MovieItemDao> mMovieList;
+
+    public HomeAdapter(Context c, List<MovieItemDao> m) {
         mContext = c;
+        mMovieList = m;
     }
 
     public int getCount() {
-        return 20;
+        return mMovieList.size();
     }
 
     public Object getItem(int position) {
@@ -42,8 +49,11 @@ public class HomeAdapter extends BaseAdapter {
         TextView textView = (TextView) convertView.findViewById(R.id.tvMovieItemName);
         ImageView imageView = (ImageView) convertView.findViewById(R.id.ivMovieItemImage);
         try {
-            textView.setText("Movie " + position);
-            imageView.setBackgroundResource(R.drawable.poster);
+            textView.setText(mMovieList.get(position).getName());
+            Glide.with(mContext)
+                    .load(mMovieList.get(position).getPoster())
+                    .placeholder(R.drawable.poster)
+                    .into(imageView);
         } catch (NullPointerException e) {}
         return convertView;
 

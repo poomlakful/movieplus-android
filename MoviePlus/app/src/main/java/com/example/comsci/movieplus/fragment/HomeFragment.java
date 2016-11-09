@@ -12,6 +12,14 @@ import android.widget.Toast;
 
 import com.example.comsci.movieplus.R;
 import com.example.comsci.movieplus.adapter.HomeAdapter;
+import com.example.comsci.movieplus.dao.MovieItemDao;
+import com.example.comsci.movieplus.manager.HttpManager;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by comsci on 9/11/2559.
@@ -21,18 +29,36 @@ public class HomeFragment extends Fragment {
 
     GridView gridview;
 
+    List<MovieItemDao> mMovieList;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         initInstances(rootView);
+        fetchData();
         return rootView;
+    }
+
+    private void fetchData() {
+        Call<List<MovieItemDao>> call = HttpManager.getInstance().getService().getMovieList();
+        call.enqueue(new Callback<List<MovieItemDao>>() {
+            @Override
+            public void onResponse(Call<List<MovieItemDao>> call, Response<List<MovieItemDao>> response) {
+                mMovieList = response.body();
+                gridview.setAdapter(new HomeAdapter(getContext(), mMovieList));
+                gridview.setOnItemClickListener(gridViewListener);
+            }
+
+            @Override
+            public void onFailure(Call<List<MovieItemDao>> call, Throwable t) {
+                Toast.makeText(getContext(),t+"",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initInstances(View rootView) {
         gridview = (GridView) rootView.findViewById(R.id.grid_home);
-        gridview.setAdapter(new HomeAdapter(getContext()));
-        gridview.setOnItemClickListener(gridViewListener);
     }
 
     private AdapterView.OnItemClickListener gridViewListener = new AdapterView.OnItemClickListener() {
