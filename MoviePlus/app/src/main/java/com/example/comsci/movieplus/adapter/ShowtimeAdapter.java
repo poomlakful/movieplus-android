@@ -62,7 +62,7 @@ public class ShowtimeAdapter extends BaseAdapter {
             tvShowtime.setText(showtimeText);
             Glide.with(mContext)
                     .load(mShowtimeList.get(position).getPoster())
-                    .placeholder(R.drawable.poster)
+                    .placeholder(R.drawable.gray_image)
                     .into(imageView);
         } catch (NullPointerException e) {}
         return convertView;

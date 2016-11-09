@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 public class MovieItemDao {
     @SerializedName("id")
     @Expose
-    private String id;
+    private int id;
 
 
     @SerializedName("time")
@@ -52,11 +52,11 @@ public class MovieItemDao {
     @Expose
     private String type;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

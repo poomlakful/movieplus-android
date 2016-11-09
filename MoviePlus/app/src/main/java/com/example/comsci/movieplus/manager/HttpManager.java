@@ -39,7 +39,7 @@ public class HttpManager {
 
         //Building Api Service
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://161.246.135.33:5555/")
+                .baseUrl("http://192.168.43.54:5555/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

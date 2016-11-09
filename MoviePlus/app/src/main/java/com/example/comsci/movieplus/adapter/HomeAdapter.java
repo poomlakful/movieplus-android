@@ -52,7 +52,7 @@ public class HomeAdapter extends BaseAdapter {
             textView.setText(mMovieList.get(position).getName());
             Glide.with(mContext)
                     .load(mMovieList.get(position).getPoster())
-                    .placeholder(R.drawable.poster)
+                    .placeholder(R.drawable.gray_image)
                     .into(imageView);
         } catch (NullPointerException e) {}
         return convertView;

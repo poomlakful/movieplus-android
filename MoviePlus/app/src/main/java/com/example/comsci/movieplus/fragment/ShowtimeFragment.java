@@ -66,6 +66,7 @@ public class ShowtimeFragment extends Fragment {
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             Intent intent = new Intent(getContext(), MovieDetailActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("id", mShowtimeList.get(i).getMovieID());
             startActivity(intent);
         }
     };
@@ -74,12 +75,11 @@ public class ShowtimeFragment extends Fragment {
         @Override
         public void onResponse(Call<List<ShowtimeItemDao>> call, Response<List<ShowtimeItemDao>> response) {
             mShowtimeList = response.body();
-            if(mShowtimeList.size() > 0) {
-                lvShowtime.setAdapter(new ShowtimeAdapter(getContext(),mShowtimeList));
-                lvShowtime.setOnItemClickListener(lvShowtimeListener);
-            } else {
-                Toast.makeText(getContext(),"Sorry, No data to show.",Toast.LENGTH_SHORT).show();
+            if(mShowtimeList == null) {
+                Toast.makeText(getContext(),"Sory, No data to show.",Toast.LENGTH_SHORT).show();
             }
+            lvShowtime.setAdapter(new ShowtimeAdapter(getContext(),mShowtimeList));
+            lvShowtime.setOnItemClickListener(lvShowtimeListener);
         }
 
         @Override

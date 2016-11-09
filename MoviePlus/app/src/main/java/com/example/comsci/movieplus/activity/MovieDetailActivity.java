@@ -1,5 +1,6 @@
 package com.example.comsci.movieplus.activity;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,7 +29,7 @@ public class MovieDetailActivity extends AppCompatActivity {
     TextView tvMovieDetailStatus;
     TextView tvMovieDetailDetail;
 
-    int movieId = 1;
+    int movieId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,10 @@ public class MovieDetailActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MovieItemDao> call, Response<MovieItemDao> response) {
                 MovieItemDao movieItemDao = response.body();
+                if(movieItemDao == null) {
+                    Toast.makeText(MovieDetailActivity.this,"Sory, No data to show.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 tvMovieDetailName.setText(movieItemDao.getName());
                 tvMovieDetailDirector.setText(movieItemDao.getDirector());
                 tvMovieDetailType.setText(movieItemDao.getType());
@@ -52,7 +57,7 @@ public class MovieDetailActivity extends AppCompatActivity {
                 tvMovieDetailDetail.setText(movieItemDao.getDetail());
                 Glide.with(MovieDetailActivity.this)
                         .load(movieItemDao.getPoster())
-                        .placeholder(R.drawable.poster)
+                        .placeholder(R.drawable.gray_image)
                         .into(ivMovieDetail);
                 //wvMovieDetail.loadData(UtilityManager.getInstance().getTrailerHtml(movieItemDao.getTrailer()), "text/html", null);
             }
@@ -68,6 +73,9 @@ public class MovieDetailActivity extends AppCompatActivity {
         //Set action bar
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.action_bar);
+
+        Intent intent = getIntent();
+        movieId = intent.getIntExtra("id",0);
 
         tvMovieDetailName = (TextView) findViewById(R.id.tvMovieDetailName);
         wvMovieDetail = (WebView) findViewById(R.id.wvMovieDetail);

@@ -49,6 +49,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<List<MovieItemDao>> call, Response<List<MovieItemDao>> response) {
                 mMovieList = response.body();
+                if(mMovieList == null) {
+                    Toast.makeText(getContext(),"Sory, No data to show.",Toast.LENGTH_SHORT).show();
+                }
                 gridview.setAdapter(new HomeAdapter(getContext(), mMovieList));
                 gridview.setOnItemClickListener(gridViewListener);
             }
@@ -69,6 +72,7 @@ public class HomeFragment extends Fragment {
                                 int position, long id) {
             Intent intent = new Intent(getContext(), MovieDetailActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("id", mMovieList.get(position).getId());
             startActivity(intent);
         }
     };
