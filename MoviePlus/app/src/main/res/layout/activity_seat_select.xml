@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_seat_select"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context="com.example.comsci.movieplus.activity.SeatSelectActivity">
+    <LinearLayout
+        android:weightSum="3"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="3dp"
+            android:layout_gravity="bottom"
+            android:background="#004eff" />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="3dp"
+            android:layout_gravity="bottom"
+            android:background="#dc5050" />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="3dp"
+            android:layout_gravity="bottom"
+            android:background="#c6ff00" />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:paddingRight="16dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/chair1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:text="100 THB"
+                    android:textColor="#fff"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:src="@drawable/chair2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:text="150 THB"
+                    android:textColor="#fff"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:src="@drawable/chair3"
+                    android:layout_width="65dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:text="200 THB"
+                    android:textColor="#fff"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <TextView
+                android:layout_margin="20dp"
+                android:background="#fac72d"
+                android:gravity="center"
+                android:text="SCREEN"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+            <ImageView
+                android:src="@drawable/theatre"
+                android:layout_width="match_parent"
+                android:layout_height="250dp" />
+            <TextView
+                android:background="#6c6c6c"
+                android:layout_marginTop="20dp"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="ToTal Price"
+                android:layout_width="150dp"
+                android:layout_height="30dp" />
+            <Button
+                android:id="@+id/btnConfirm"
+                android:text="Confirm"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="#ff7847"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="30dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

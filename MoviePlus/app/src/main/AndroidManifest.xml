@@ -21,7 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.MovieDetailActivity"></activity>
+        <activity android:name=".activity.MovieDetailActivity" />
+        <activity android:name=".activity.SeatSelectActivity" />
+        <activity android:name=".activity.PaymentActivity"></activity>
     </application>
 
 </manifest>

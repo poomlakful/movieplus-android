@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.comsci.movieplus.R;
@@ -51,7 +52,7 @@ public class ShowtimeFragment extends Fragment {
     private AdapterView.OnItemSelectedListener snCinemaListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-            Call<List<ShowtimeItemDao>> call = HttpManager.getInstance().getService().getMovieByCinemaId(i+1);
+            Call<List<ShowtimeItemDao>> call = HttpManager.getInstance().getService().getMovieByCinemaId(i + 1);
             call.enqueue(showtimeCallback);
         }
 
@@ -75,16 +76,18 @@ public class ShowtimeFragment extends Fragment {
         @Override
         public void onResponse(Call<List<ShowtimeItemDao>> call, Response<List<ShowtimeItemDao>> response) {
             mShowtimeList = response.body();
-            if(mShowtimeList == null) {
-                Toast.makeText(getContext(),"Sory, No data to show.",Toast.LENGTH_SHORT).show();
+            if (mShowtimeList == null) {
+                Toast.makeText(getContext(), "Sory, No data to show.", Toast.LENGTH_SHORT).show();
             }
-            lvShowtime.setAdapter(new ShowtimeAdapter(getContext(),mShowtimeList));
+            lvShowtime.setAdapter(new ShowtimeAdapter(getContext(), mShowtimeList));
             lvShowtime.setOnItemClickListener(lvShowtimeListener);
         }
 
         @Override
         public void onFailure(Call<List<ShowtimeItemDao>> call, Throwable t) {
-            Toast.makeText(getContext(),t+"",Toast.LENGTH_SHORT).show();
+            try {
+                Toast.makeText(getContext(), t + "", Toast.LENGTH_SHORT).show();
+            } catch (NullPointerException e) {}
         }
     };
 }

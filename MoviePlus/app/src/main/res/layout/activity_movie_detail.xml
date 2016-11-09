@@ -112,6 +112,7 @@
     </ScrollView>
     </LinearLayout>
     <Button
+        android:id="@+id/btBuyNow"
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="20dp"
         android:background="#5fff2f"

@@ -12,7 +12,6 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.comsci.movieplus.R;
-import com.example.comsci.movieplus.activity.MainActivity;
 import com.example.comsci.movieplus.activity.MovieDetailActivity;
 import com.example.comsci.movieplus.adapter.HomeAdapter;
 import com.example.comsci.movieplus.dao.MovieItemDao;
@@ -49,8 +48,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<List<MovieItemDao>> call, Response<List<MovieItemDao>> response) {
                 mMovieList = response.body();
-                if(mMovieList == null) {
-                    Toast.makeText(getContext(),"Sory, No data to show.",Toast.LENGTH_SHORT).show();
+                if (mMovieList == null) {
+                    Toast.makeText(getContext(), "Sory, No data to show.", Toast.LENGTH_SHORT).show();
                 }
                 gridview.setAdapter(new HomeAdapter(getContext(), mMovieList));
                 gridview.setOnItemClickListener(gridViewListener);
@@ -58,7 +57,9 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<MovieItemDao>> call, Throwable t) {
-                Toast.makeText(getContext(),t+"",Toast.LENGTH_SHORT).show();
+                try {
+                    Toast.makeText(getContext(), t + "", Toast.LENGTH_SHORT).show();
+                } catch (NullPointerException e) {}
             }
         });
     }
