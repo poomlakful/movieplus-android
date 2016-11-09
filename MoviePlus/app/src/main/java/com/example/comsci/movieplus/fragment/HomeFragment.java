@@ -1,5 +1,6 @@
 package com.example.comsci.movieplus.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,8 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.comsci.movieplus.R;
+import com.example.comsci.movieplus.activity.MainActivity;
+import com.example.comsci.movieplus.activity.MovieDetailActivity;
 import com.example.comsci.movieplus.adapter.HomeAdapter;
 import com.example.comsci.movieplus.dao.MovieItemDao;
 import com.example.comsci.movieplus.manager.HttpManager;
@@ -64,8 +67,9 @@ public class HomeFragment extends Fragment {
     private AdapterView.OnItemClickListener gridViewListener = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView<?> parent, View v,
                                 int position, long id) {
-            Toast.makeText(getContext(), "Movie " + position,
-                    Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getContext(), MovieDetailActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }
     };
 }
