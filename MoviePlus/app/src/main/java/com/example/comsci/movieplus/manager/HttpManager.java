@@ -24,6 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HttpManager {
 
     private static HttpManager instance;
+    private String url = "http://161.246.134.33:5555/";
 
     public static HttpManager getInstance() {
         if (instance == null)
@@ -39,7 +40,7 @@ public class HttpManager {
 
         //Building Api Service
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.43.54:5555/")
+                .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
