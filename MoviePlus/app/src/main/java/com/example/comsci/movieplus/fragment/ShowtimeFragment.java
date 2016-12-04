@@ -76,7 +76,7 @@ public class ShowtimeFragment extends Fragment {
         @Override
         public void onResponse(Call<List<ShowtimeItemDao>> call, Response<List<ShowtimeItemDao>> response) {
             mShowtimeList = response.body();
-            if (mShowtimeList == null) {
+            if (mShowtimeList == null || mShowtimeList.size() == 0) {
                 Toast.makeText(getContext(), "Sory, No data to show.", Toast.LENGTH_SHORT).show();
             }
             lvShowtime.setAdapter(new ShowtimeAdapter(getContext(), mShowtimeList));

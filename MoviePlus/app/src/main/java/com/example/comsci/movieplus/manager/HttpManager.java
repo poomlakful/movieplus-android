@@ -24,7 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HttpManager {
 
     private static HttpManager instance;
-    private String url = "http://161.246.134.33:5555/";
+    private String url = "http://poomdev.zz.mu/movieplus-api-php/";
 
     public static HttpManager getInstance() {
         if (instance == null)
