@@ -6,117 +6,132 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context="com.example.comsci.movieplus.activity.MovieDetailActivity">
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <LinearLayout
-        android:weightSum="3"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <View
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="3dp"
-            android:layout_gravity="bottom"
-            android:background="#004eff" />
-        <View
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="3dp"
-            android:layout_gravity="bottom"
-            android:background="#dc5050" />
-        <View
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="3dp"
-            android:layout_gravity="bottom"
-            android:background="#c6ff00" />
-    </LinearLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:textColor="#fff"
-                android:textSize="18sp"
-                android:id="@+id/tvMovieDetailName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <WebView
-                android:id="@+id/wvMovieDetail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <LinearLayout
-                android:background="#ff712a"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:padding="15dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:id="@+id/ivMovieDetail"
-                    android:layout_width="110dp"
-                    android:layout_height="130dp" />
-                <LinearLayout
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="20dp"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textColor="#fff"
-                        android:textSize="18sp"
-                        android:id="@+id/tvMovieDetailDirector"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:textColor="#fff"
-                        android:textSize="18sp"
-                        android:id="@+id/tvMovieDetailType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:textColor="#fff"
-                        android:textSize="18sp"
-                        android:id="@+id/tvMovieDetailTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:textColor="#fff"
-                        android:textSize="18sp"
-                        android:id="@+id/tvMovieDetailStatus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-            <TextView
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="80dp"
-                android:textColor="#fff"
-                android:textSize="14sp"
-                android:id="@+id/tvMovieDetailDetail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:background="#004eff" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:background="#dc5050" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:background="#c6ff00" />
         </LinearLayout>
-    </ScrollView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.pierfrancescosoffritti.youtubeplayer.YouTubePlayerView
+                    android:id="@+id/vvMovieDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tvMovieDetailName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:textColor="#fff"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="#ff712a"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
+
+                    <ImageView
+                        android:id="@+id/ivMovieDetail"
+                        android:layout_width="110dp"
+                        android:layout_height="130dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvMovieDetailDirector"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#fff"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/tvMovieDetailType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#fff"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/tvMovieDetailTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#fff"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/tvMovieDetailStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#fff"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvMovieDetailDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="80dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
+
     <Button
         android:id="@+id/btBuyNow"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="20dp"
         android:background="#5fff2f"
-        android:text="Buy Now"
-        android:layout_width="150dp"
-        android:layout_height="40dp" />
+        android:text="Buy Now" />
 </FrameLayout>

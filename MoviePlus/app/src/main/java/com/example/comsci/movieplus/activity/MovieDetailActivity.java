@@ -1,6 +1,7 @@
 package com.example.comsci.movieplus.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,13 +9,18 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 import com.example.comsci.movieplus.R;
 import com.example.comsci.movieplus.dao.MovieItemDao;
 import com.example.comsci.movieplus.manager.HttpManager;
+import com.pierfrancescosoffritti.youtubeplayer.AbstractYouTubeListener;
+import com.pierfrancescosoffritti.youtubeplayer.YouTubePlayer;
+import com.pierfrancescosoffritti.youtubeplayer.YouTubePlayerView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,7 +28,7 @@ import retrofit2.Response;
 
 public class MovieDetailActivity extends AppCompatActivity {
     TextView tvMovieDetailName;
-    WebView wvMovieDetail;
+    YouTubePlayerView vvMovieDetail;
     ImageView ivMovieDetail;
     TextView tvMovieDetailDirector;
     TextView tvMovieDetailType;
@@ -51,17 +57,7 @@ public class MovieDetailActivity extends AppCompatActivity {
                     Toast.makeText(MovieDetailActivity.this, "Sory, No data to show.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                tvMovieDetailName.setText(movieItemDao.getName());
-                tvMovieDetailDirector.setText(movieItemDao.getDirector());
-                tvMovieDetailType.setText(movieItemDao.getType());
-                tvMovieDetailTime.setText(movieItemDao.getTime() + " min");
-                tvMovieDetailStatus.setText(movieItemDao.getStatus());
-                tvMovieDetailDetail.setText(movieItemDao.getDetail());
-                Glide.with(MovieDetailActivity.this)
-                        .load(movieItemDao.getPoster())
-                        .placeholder(R.drawable.gray_image)
-                        .into(ivMovieDetail);
-                //wvMovieDetail.loadData(UtilityManager.getInstance().getTrailerHtml(movieItemDao.getTrailer()), "text/html", null);
+                setView(movieItemDao);
             }
 
             @Override
@@ -69,6 +65,29 @@ public class MovieDetailActivity extends AppCompatActivity {
                 Toast.makeText(MovieDetailActivity.this, t + "", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void setView(MovieItemDao movieItemDao) {
+        tvMovieDetailName.setText(movieItemDao.getName());
+        tvMovieDetailDirector.setText(movieItemDao.getDirector());
+        tvMovieDetailType.setText(movieItemDao.getType());
+        tvMovieDetailTime.setText(movieItemDao.getTime() + " min");
+        tvMovieDetailStatus.setText(movieItemDao.getStatus());
+        tvMovieDetailDetail.setText(movieItemDao.getDetail());
+
+        // set poster image
+        Glide.with(MovieDetailActivity.this)
+                .load(movieItemDao.getPoster())
+                .placeholder(R.drawable.gray_image)
+                .into(ivMovieDetail);
+
+        // set trailer video
+        vvMovieDetail.initialize(new AbstractYouTubeListener() {
+            @Override
+            public void onReady() {
+                vvMovieDetail.loadVideo("aVBdeeXuXLU", 0);
+            }
+        }, true);
     }
 
     private void initInstances() {
@@ -82,7 +101,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         movieId = intent.getIntExtra("id", 0);
 
         tvMovieDetailName = (TextView) findViewById(R.id.tvMovieDetailName);
-        wvMovieDetail = (WebView) findViewById(R.id.wvMovieDetail);
+        vvMovieDetail = (YouTubePlayerView) findViewById(R.id.vvMovieDetail);
         ivMovieDetail = (ImageView) findViewById(R.id.ivMovieDetail);
         tvMovieDetailDirector = (TextView) findViewById(R.id.tvMovieDetailDirector);
         tvMovieDetailType = (TextView) findViewById(R.id.tvMovieDetailType);
