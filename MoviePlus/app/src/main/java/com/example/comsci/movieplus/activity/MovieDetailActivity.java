@@ -1,25 +1,20 @@
 package com.example.comsci.movieplus.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 import com.example.comsci.movieplus.R;
 import com.example.comsci.movieplus.dao.MovieItemDao;
 import com.example.comsci.movieplus.manager.HttpManager;
 import com.pierfrancescosoffritti.youtubeplayer.AbstractYouTubeListener;
-import com.pierfrancescosoffritti.youtubeplayer.YouTubePlayer;
 import com.pierfrancescosoffritti.youtubeplayer.YouTubePlayerView;
 
 import retrofit2.Call;
@@ -28,7 +23,7 @@ import retrofit2.Response;
 
 public class MovieDetailActivity extends AppCompatActivity {
     TextView tvMovieDetailName;
-    YouTubePlayerView vvMovieDetail;
+    YouTubePlayerView youtubePlayer;
     ImageView ivMovieDetail;
     TextView tvMovieDetailDirector;
     TextView tvMovieDetailType;
@@ -45,6 +40,18 @@ public class MovieDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movie_detail);
         initInstances();
         fetchData();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        youtubePlayer.pauseVideo();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        youtubePlayer.release();
     }
 
     private void fetchData() {
@@ -67,7 +74,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         });
     }
 
-    private void setView(MovieItemDao movieItemDao) {
+    private void setView(final MovieItemDao movieItemDao) {
         tvMovieDetailName.setText(movieItemDao.getName());
         tvMovieDetailDirector.setText(movieItemDao.getDirector());
         tvMovieDetailType.setText(movieItemDao.getType());
@@ -82,10 +89,10 @@ public class MovieDetailActivity extends AppCompatActivity {
                 .into(ivMovieDetail);
 
         // set trailer video
-        vvMovieDetail.initialize(new AbstractYouTubeListener() {
+        youtubePlayer.initialize(new AbstractYouTubeListener() {
             @Override
             public void onReady() {
-                vvMovieDetail.loadVideo("aVBdeeXuXLU", 0);
+                youtubePlayer.loadVideo(movieItemDao.getTrailer(), 0);
             }
         }, true);
     }
@@ -101,7 +108,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         movieId = intent.getIntExtra("id", 0);
 
         tvMovieDetailName = (TextView) findViewById(R.id.tvMovieDetailName);
-        vvMovieDetail = (YouTubePlayerView) findViewById(R.id.vvMovieDetail);
+        youtubePlayer = (YouTubePlayerView) findViewById(R.id.vvMovieDetail);
         ivMovieDetail = (ImageView) findViewById(R.id.ivMovieDetail);
         tvMovieDetailDirector = (TextView) findViewById(R.id.tvMovieDetailDirector);
         tvMovieDetailType = (TextView) findViewById(R.id.tvMovieDetailType);
