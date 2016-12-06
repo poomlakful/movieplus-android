@@ -20,8 +20,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <ImageButton
-                android:id="@+id/btnHome"
+            <ImageView
+                android:id="@+id/ivHome"
                 android:layout_width="@dimen/top_menu_icon_size"
                 android:layout_height="@dimen/top_menu_icon_size"
                 android:layout_gravity="center|top"
@@ -31,6 +31,12 @@
                 android:src="@drawable/home"
                 android:text="Home"
                 android:textColor="#fff" />
+
+            <Button
+                android:id="@+id/btnHome"
+                android:background="#00000000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <View
                 android:layout_width="match_parent"
@@ -44,8 +50,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <ImageButton
-                android:id="@+id/btnShowtime"
+            <ImageView
+                android:id="@+id/ivShowtime"
                 android:layout_width="@dimen/top_menu_icon_size"
                 android:layout_height="@dimen/top_menu_icon_size"
                 android:layout_gravity="center|top"
@@ -54,6 +60,12 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/showtime"
                 android:textColor="#fff" />
+
+            <Button
+                android:id="@+id/btnShowtime"
+                android:background="#00000000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <View
                 android:layout_width="match_parent"
@@ -67,8 +79,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <ImageButton
-                android:id="@+id/btnMenu"
+            <ImageView
+                android:id="@+id/ivMenu"
                 android:layout_width="@dimen/top_menu_icon_size"
                 android:layout_height="@dimen/top_menu_icon_size"
                 android:layout_gravity="center|top"
@@ -77,6 +89,12 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/menu"
                 android:textColor="#fff" />
+
+            <Button
+                android:id="@+id/btnMenu"
+                android:background="#00000000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <View
                 android:layout_width="match_parent"

@@ -5,7 +5,9 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.comsci.movieplus.R;
 import com.example.comsci.movieplus.fragment.HomeFragment;
@@ -14,9 +16,12 @@ import com.example.comsci.movieplus.fragment.ShowtimeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton btnHome;
-    ImageButton btnShowtime;
-    ImageButton btnMenu;
+    Button btnHome;
+    Button btnShowtime;
+    Button btnMenu;
+    ImageView ivHome;
+    ImageView ivShowtime;
+    ImageView ivMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +37,12 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.action_bar);
 
         // Find view
-        btnHome = (ImageButton) findViewById(R.id.btnHome);
-        btnShowtime = (ImageButton) findViewById(R.id.btnShowtime);
-        btnMenu = (ImageButton) findViewById(R.id.btnMenu);
+        btnHome = (Button) findViewById(R.id.btnHome);
+        btnShowtime = (Button) findViewById(R.id.btnShowtime);
+        btnMenu = (Button) findViewById(R.id.btnMenu);
+        ivHome = (ImageView) findViewById(R.id.ivHome);
+        ivShowtime = (ImageView) findViewById(R.id.ivShowtime);
+        ivMenu = (ImageView) findViewById(R.id.ivMenu);
 
         // Set listener
         btnHome.setOnClickListener(btnHomeListener);
@@ -45,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private void initFragment(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             setImageButtonDefault();
-            btnHome.setImageResource(R.drawable.home_click);
+            ivHome.setImageResource(R.drawable.home_click);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.MainContainer, new HomeFragment())
                     .commit();
@@ -53,16 +61,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setImageButtonDefault() {
-        btnHome.setImageResource(R.drawable.home);
-        btnShowtime.setImageResource(R.drawable.showtime);
-        btnMenu.setImageResource(R.drawable.menu);
+        ivHome.setImageResource(R.drawable.home);
+        ivShowtime.setImageResource(R.drawable.showtime);
+        ivMenu.setImageResource(R.drawable.menu);
     }
 
     private View.OnClickListener btnHomeListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             setImageButtonDefault();
-            btnHome.setImageResource(R.drawable.home_click);
+            ivHome.setImageResource(R.drawable.home_click);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.MainContainer, new HomeFragment())
                     .commit();
@@ -73,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             setImageButtonDefault();
-            btnShowtime.setImageResource(R.drawable.showtime_click);
+            ivShowtime.setImageResource(R.drawable.showtime_click);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.MainContainer, new ShowtimeFragment())
                     .commit();
@@ -84,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             setImageButtonDefault();
-            btnMenu.setImageResource(R.drawable.menu_click);
+            ivMenu.setImageResource(R.drawable.menu_click);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.MainContainer, new MenuFragment())
                     .commit();
