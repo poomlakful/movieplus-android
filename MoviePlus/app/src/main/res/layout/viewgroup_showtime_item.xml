@@ -35,29 +35,30 @@
 
             <TextView
                 android:id="@+id/tvMovieName"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#fff"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvDirector"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#fff"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvTime"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#fff"
                 android:textSize="18sp" />
 
-            <GridView
+            <com.example.comsci.movieplus.view.MyGridView
                 android:id="@+id/gvTimeList"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:numColumns="2" />
 
         </LinearLayout>
     </LinearLayout>

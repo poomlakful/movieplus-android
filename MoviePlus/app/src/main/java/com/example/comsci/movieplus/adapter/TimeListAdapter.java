@@ -7,6 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
+import com.example.comsci.movieplus.view.TimeListItemViewGroup;
+
 import java.util.List;
 
 /**
@@ -39,14 +41,13 @@ public class TimeListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        Button btn;
+        TimeListItemViewGroup item;
         if(view == null) {
-            btn = new Button(mContext);
+            item = new TimeListItemViewGroup(mContext);
         } else {
-            btn = (Button) view;
+            item = (TimeListItemViewGroup) view;
         }
-        btn.setText(mTimeList.get(i));
-        btn.setWidth();
-        return btn;
+        item.setTime(mTimeList.get(i));
+        return item;
     }
 }

@@ -4,12 +4,13 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
-import android.widget.Button;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.comsci.movieplus.R;
@@ -28,7 +29,7 @@ public class ShowtimeItemViewGroup extends FrameLayout {
     private TextView tvDirector;
     private TextView tvTime;
     private ImageView imageView;
-    private GridView gvTimeList;
+    private MyGridView gvTimeList;
 
     public ShowtimeItemViewGroup(Context context) {
         super(context);
@@ -65,7 +66,7 @@ public class ShowtimeItemViewGroup extends FrameLayout {
         tvDirector = (TextView) findViewById(R.id.tvDirector);
         tvTime = (TextView) findViewById(R.id.tvTime);
         imageView = (ImageView) findViewById(R.id.ivPoster);
-        gvTimeList = (GridView) findViewById(R.id.gvTimeList);
+        gvTimeList = (MyGridView) findViewById(R.id.gvTimeList);
     }
 
     public void setTheatreName(String text) {
@@ -91,8 +92,14 @@ public class ShowtimeItemViewGroup extends FrameLayout {
                 .into(imageView);
     }
 
-    public void setTimeList(List<String> timeList) {
+    public void setTimeList(final List<String> timeList) {
         TimeListAdapter adapter = new TimeListAdapter(getContext(),timeList);
         gvTimeList.setAdapter(adapter);
+        gvTimeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(getContext(),timeList.get(i),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
