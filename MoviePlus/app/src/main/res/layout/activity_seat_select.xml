@@ -84,10 +84,683 @@
                 android:textColor="#000"
                 android:layout_width="match_parent"
                 android:layout_height="30dp" />
-            <ImageView
-                android:src="@drawable/theatre"
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp" />
+                android:layout_height="250dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal" >
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent" />
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="F1"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="F2"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="F3"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="F4"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="F5"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="F6"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="F7"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="F8"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="F9"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="F10"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="F11"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="F12"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal" >
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent" />
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="E1"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="E2"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="E3"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="E4"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="E5"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="E6"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="E7"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="E8"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="E9"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="E10"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="E11"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="E12"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal" >
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent" />
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="D1"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="D2"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="D3"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="D4"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="D5"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="D6"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="D7"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="D8"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="D9"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="D10"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="D11"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="D12"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal" >
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent" />
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="C1"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="C2"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="C3"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="C4"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="C5"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="C6"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="C7"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="C8"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="C9"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="C10"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="C11"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="C12"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/redseat"
+                        android:onClick="SelectSeat"/>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:weightSum="10"
+                    android:orientation="horizontal" >
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="B1"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/greenseat"
+                        android:layout_weight="1"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="B2"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/greenseat"
+                        android:layout_weight="1"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="B3"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/greenseat"
+                        android:layout_weight="1"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="B4"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/greenseat"
+                        android:layout_weight="1"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="B5"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/greenseat"
+                        android:layout_weight="1"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="B6"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/greenseat"
+                        android:layout_weight="1"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="B7"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/greenseat"
+                        android:layout_weight="1"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="B8"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/greenseat"
+                        android:layout_weight="1"
+                        android:onClick="SelectSeat"/>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:weightSum="6"
+                    android:orientation="horizontal" >
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="A1"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/blueseat"
+                        android:layout_weight="1"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="A2"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/blueseat"
+                        android:layout_weight="1"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="A3"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/blueseat"
+                        android:layout_weight="1"
+                        android:onClick="SelectSeat"/>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:text="A4"
+                        android:textSize="12dp"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/blueseat"
+                        android:layout_weight="1"
+                        android:onClick="SelectSeat"/>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txt1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Test"
+                    android:textSize="12dp"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
             <TextView
                 android:background="#6c6c6c"
                 android:layout_marginTop="20dp"

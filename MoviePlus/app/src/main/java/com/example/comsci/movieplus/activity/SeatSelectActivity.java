@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.comsci.movieplus.R;
 
@@ -42,5 +43,13 @@ public class SeatSelectActivity extends AppCompatActivity {
                 //finish();
             }
         });
+    }
+
+    public void SelectSeat(View view){
+        TextView txt1 = (TextView)findViewById(R.id.txt1);
+        Button seat = (Button)view;
+        String SeatNo = seat.getText().toString();
+        txt1.setText("Seat No. : " + SeatNo);
+        seat.setBackgroundResource(R.drawable.sofacheckred);
     }
 }
