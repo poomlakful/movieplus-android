@@ -104,7 +104,7 @@
                         android:text="F1"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"
                         android:layout_width="wrap_content" />
 
@@ -114,7 +114,7 @@
                         android:text="F2"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"
                         android:layout_width="wrap_content" />
 
@@ -124,7 +124,7 @@
                         android:text="F3"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"
                         android:layout_width="wrap_content" />
 
@@ -134,7 +134,7 @@
                         android:text="F4"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"
                         android:layout_width="wrap_content" />
 
@@ -144,7 +144,7 @@
                         android:text="F5"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"
                         android:layout_width="wrap_content" />
 
@@ -154,7 +154,7 @@
                         android:text="F6"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"
                         android:layout_width="wrap_content" />
 
@@ -164,7 +164,7 @@
                         android:text="F7"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"
                         android:layout_width="wrap_content" />
 
@@ -174,7 +174,7 @@
                         android:text="F8"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -183,7 +183,7 @@
                         android:text="F9"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"
                         android:layout_width="wrap_content" />
 
@@ -193,7 +193,7 @@
                         android:text="F10"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"
                         android:layout_width="wrap_content" />
 
@@ -213,7 +213,7 @@
                         android:text="E1"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -223,7 +223,7 @@
                         android:text="E2"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -233,7 +233,7 @@
                         android:text="E3"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -243,7 +243,7 @@
                         android:text="E4"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -253,7 +253,7 @@
                         android:text="E5"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -263,7 +263,7 @@
                         android:text="E6"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -273,7 +273,7 @@
                         android:text="E7"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -283,7 +283,7 @@
                         android:text="E8"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -293,7 +293,7 @@
                         android:text="E9"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -303,7 +303,7 @@
                         android:text="E10"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                 </LinearLayout>
@@ -322,7 +322,7 @@
                         android:text="D1"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -332,7 +332,7 @@
                         android:text="D2"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -342,7 +342,7 @@
                         android:text="D3"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -352,7 +352,7 @@
                         android:text="D4"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -362,7 +362,7 @@
                         android:text="D5"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -372,7 +372,7 @@
                         android:text="D6"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -382,7 +382,7 @@
                         android:text="D7"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -392,7 +392,7 @@
                         android:text="D8"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -402,7 +402,7 @@
                         android:text="D9"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -412,7 +412,7 @@
                         android:text="D10"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                 </LinearLayout>
@@ -431,7 +431,7 @@
                         android:text="C1"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -441,7 +441,7 @@
                         android:text="C2"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -451,7 +451,7 @@
                         android:text="C3"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -461,7 +461,7 @@
                         android:text="C4"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -471,7 +471,7 @@
                         android:text="C5"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -481,7 +481,7 @@
                         android:text="C6"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -491,7 +491,7 @@
                         android:text="C7"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -501,7 +501,7 @@
                         android:text="C8"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -511,7 +511,7 @@
                         android:text="C9"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                     <Button
@@ -521,7 +521,7 @@
                         android:text="C10"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatred"
+                        android:background="@drawable/redseat"
                         android:onClick="SelectRedSeat"/>
 
                 </LinearLayout>
@@ -531,90 +531,98 @@
                     android:layout_height="30dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:weightSum="8"
+                    android:weightSum="10"
                     android:orientation="horizontal" >
 
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
                     <Button
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:text="B1"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatgreen"
+                        android:background="@drawable/greenseat"
                         android:layout_weight="1"
-                        android:onClick="SelectGreenSeat"
-                        android:layout_width="wrap_content" />
+                        android:onClick="SelectRedSeat"/>
 
                     <Button
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:text="B2"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatgreen"
+                        android:background="@drawable/greenseat"
                         android:layout_weight="1"
-                        android:onClick="SelectGreenSeat"
-                        android:layout_width="wrap_content" />
+                        android:onClick="SelectRedSeat"/>
 
                     <Button
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:text="B3"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatgreen"
+                        android:background="@drawable/greenseat"
                         android:layout_weight="1"
-                        android:onClick="SelectGreenSeat"
-                        android:layout_width="wrap_content" />
+                        android:onClick="SelectRedSeat"/>
 
                     <Button
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:text="B4"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatgreen"
+                        android:background="@drawable/greenseat"
                         android:layout_weight="1"
-                        android:onClick="SelectGreenSeat"
-                        android:layout_width="wrap_content" />
+                        android:onClick="SelectRedSeat"/>
 
                     <Button
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:text="B5"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatgreen"
+                        android:background="@drawable/greenseat"
                         android:layout_weight="1"
-                        android:onClick="SelectGreenSeat"
-                        android:layout_width="wrap_content" />
+                        android:onClick="SelectRedSeat"/>
 
                     <Button
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:text="B6"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatgreen"
+                        android:background="@drawable/greenseat"
                         android:layout_weight="1"
-                        android:onClick="SelectGreenSeat"
-                        android:layout_width="wrap_content" />
+                        android:onClick="SelectRedSeat"/>
 
                     <Button
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:text="B7"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatgreen"
+                        android:background="@drawable/greenseat"
                         android:layout_weight="1"
-                        android:onClick="SelectGreenSeat"
-                        android:layout_width="wrap_content" />
+                        android:onClick="SelectRedSeat"/>
 
                     <Button
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:text="B8"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatgreen"
+                        android:background="@drawable/greenseat"
                         android:layout_weight="1"
-                        android:onClick="SelectGreenSeat"
-                        android:layout_width="wrap_content" />
+                        android:onClick="SelectRedSeat"/>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="12dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
 
                 </LinearLayout>
 
@@ -637,9 +645,9 @@
                         android:text="A1"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatblue"
+                        android:background="@drawable/blueseat"
                         android:layout_weight="1"
-                        android:onClick="SelectBlueSeat"/>
+                        android:onClick="SelectRedSeat"/>
 
                     <Button
                         android:layout_width="30dp"
@@ -647,9 +655,9 @@
                         android:text="A2"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatblue"
+                        android:background="@drawable/blueseat"
                         android:layout_weight="1"
-                        android:onClick="SelectBlueSeat"/>
+                        android:onClick="SelectRedSeat"/>
 
                     <Button
                         android:layout_width="30dp"
@@ -657,9 +665,9 @@
                         android:text="A3"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatblue"
+                        android:background="@drawable/blueseat"
                         android:layout_weight="1"
-                        android:onClick="SelectBlueSeat"/>
+                        android:onClick="SelectRedSeat"/>
 
                     <Button
                         android:layout_width="30dp"
@@ -667,9 +675,9 @@
                         android:text="A4"
                         android:textSize="12dp"
                         android:textColor="@android:color/white"
-                        android:background="@drawable/seatblue"
+                        android:background="@drawable/blueseat"
                         android:layout_weight="1"
-                        android:onClick="SelectBlueSeat"/>
+                        android:onClick="SelectRedSeat"/>
 
                     <android.support.v4.widget.Space
                         android:layout_width="12dp"

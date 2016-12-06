@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.comsci.movieplus.R;
 
@@ -53,6 +54,8 @@ public class SeatSelectActivity extends AppCompatActivity {
     public void SelectRedSeat(View view){
         Button seat = (Button)view;
         String rs = seat.getText().toString();
+        TextView txt = (TextView)findViewById(R.id.txt1);
+        txt.setText("Seat : " + rs);
         int i = 0, j = 0;
         if(rs.charAt(0) == 'F') { i = 0; }
         else if(rs.charAt(0) == 'E') { i = 1; }
@@ -60,40 +63,11 @@ public class SeatSelectActivity extends AppCompatActivity {
         else { i = 3; }
         j = Integer.parseInt(rs.substring(1)) - 1;
         if (Rseat[i][j] == 0){
-            seat.setBackgroundResource(R.drawable.seatredcheck);
+            seat.setBackgroundResource(R.drawable.sofacheckred);
             Rseat[i][j] = 1;
         }
         else {
-            seat.setBackgroundResource(R.drawable.seatred);
-            Rseat[i][j] = 0;
-        }
-    }
-    public void SelectGreenSeat(View view){
-        Button seat = (Button)view;
-        String rs = seat.getText().toString();
-        int i = 0, j = 0;
-        j = Integer.parseInt(rs.substring(1)) - 1;
-        if (Rseat[i][j] == 0){
-            seat.setBackgroundResource(R.drawable.seatgreencheck);
-            Rseat[i][j] = 1;
-        }
-        else {
-            seat.setBackgroundResource(R.drawable.seatgreen);
-            Rseat[i][j] = 0;
-        }
-    }
-
-    public void SelectBlueSeat(View view){
-        Button seat = (Button)view;
-        String rs = seat.getText().toString();
-        int i = 0, j = 0;
-        j = Integer.parseInt(rs.substring(1)) - 1;
-        if (Rseat[i][j] == 0){
-            seat.setBackgroundResource(R.drawable.seatbluecheck);
-            Rseat[i][j] = 1;
-        }
-        else {
-            seat.setBackgroundResource(R.drawable.seatblue);
+            seat.setBackgroundResource(R.drawable.redseat);
             Rseat[i][j] = 0;
         }
     }
