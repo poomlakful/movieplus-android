@@ -14,6 +14,12 @@ import com.example.comsci.movieplus.R;
 public class SeatSelectActivity extends AppCompatActivity {
 
     int movieId;
+    int Rseat[][] = { { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
+    int Gseat[] = { 0,0,0,0,0,0,0,0 };
+    int Bseat[] = { 0,0,0,0, };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +51,24 @@ public class SeatSelectActivity extends AppCompatActivity {
         });
     }
 
-    public void SelectSeat(View view){
-        TextView txt1 = (TextView)findViewById(R.id.txt1);
+    public void SelectRedSeat(View view){
         Button seat = (Button)view;
-        String SeatNo = seat.getText().toString();
-        txt1.setText("Seat No. : " + SeatNo);
-        seat.setBackgroundResource(R.drawable.sofacheckred);
+        String rs = seat.getText().toString();
+        TextView txt = (TextView)findViewById(R.id.txt1);
+        txt.setText("Seat : " + rs);
+        int i = 0, j = 0;
+        if(rs.charAt(0) == 'F') { i = 0; }
+        else if(rs.charAt(0) == 'E') { i = 1; }
+        else if(rs.charAt(0) == 'D') { i = 2; }
+        else { i = 3; }
+        j = Integer.parseInt(rs.substring(1)) - 1;
+        if (Rseat[i][j] == 0){
+            seat.setBackgroundResource(R.drawable.sofacheckred);
+            Rseat[i][j] = 1;
+        }
+        else {
+            seat.setBackgroundResource(R.drawable.redseat);
+            Rseat[i][j] = 0;
+        }
     }
 }
