@@ -21,8 +21,7 @@ import java.util.List;
 
 public class HomeAdapter extends BaseAdapter {
     private Context mContext;
-
-    List<MovieItemDao> mMovieList;
+    private List<MovieItemDao> mMovieList;
 
     public HomeAdapter(Context c, List<MovieItemDao> m) {
         mContext = c;
