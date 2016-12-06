@@ -47,9 +47,10 @@ public class ShowtimeFragment extends Fragment {
 
     private void initInstances(View rootView) {
         snCinema = (Spinner) rootView.findViewById(R.id.snCinema);
-        snCinema.setOnItemSelectedListener(snCinemaListener);
         lvShowtime = (ListView) rootView.findViewById(R.id.lvShowtime);
         pbShowtime = (ProgressBar) rootView.findViewById(R.id.pbShowtime);
+
+        snCinema.setOnItemSelectedListener(snCinemaListener);
     }
 
     private AdapterView.OnItemSelectedListener snCinemaListener = new AdapterView.OnItemSelectedListener() {
@@ -85,9 +86,10 @@ public class ShowtimeFragment extends Fragment {
             mShowtimeList = response.body();
             if (mShowtimeList == null || mShowtimeList.size() == 0) {
                 Toast.makeText(getContext(), "Sory, No data to show.", Toast.LENGTH_SHORT).show();
+            } else {
+                lvShowtime.setAdapter(new ShowtimeAdapter(getContext(), mShowtimeList));
+                lvShowtime.setOnItemClickListener(lvShowtimeListener);
             }
-            lvShowtime.setAdapter(new ShowtimeAdapter(getContext(), mShowtimeList));
-            lvShowtime.setOnItemClickListener(lvShowtimeListener);
         }
 
         @Override

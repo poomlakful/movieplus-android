@@ -95,11 +95,13 @@ public class ShowtimeItemViewGroup extends FrameLayout {
     public void setTimeList(final List<String> timeList) {
         TimeListAdapter adapter = new TimeListAdapter(getContext(),timeList);
         gvTimeList.setAdapter(adapter);
-        gvTimeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        AdapterView.OnItemClickListener gvTimeListListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getContext(),timeList.get(i),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), timeList.get(i), Toast.LENGTH_SHORT).show();
             }
-        });
+        };
+        gvTimeList.setOnItemClickListener(gvTimeListListener);
+
     }
 }
