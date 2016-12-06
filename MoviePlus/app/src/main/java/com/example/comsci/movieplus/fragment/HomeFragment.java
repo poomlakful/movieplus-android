@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.comsci.movieplus.R;
@@ -30,6 +31,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
 
     GridView gridview;
+    ProgressBar pbHome;
 
     List<MovieItemDao> mMovieList;
 
@@ -43,10 +45,12 @@ public class HomeFragment extends Fragment {
     }
 
     private void fetchData() {
+        pbHome.setVisibility(View.VISIBLE);
         Call<List<MovieItemDao>> call = HttpManager.getInstance().getService().getMovieList();
         call.enqueue(new Callback<List<MovieItemDao>>() {
             @Override
             public void onResponse(Call<List<MovieItemDao>> call, Response<List<MovieItemDao>> response) {
+                pbHome.setVisibility(View.INVISIBLE);
                 mMovieList = response.body();
                 if (mMovieList == null) {
                     Toast.makeText(getContext(), "Sory, No data to show.", Toast.LENGTH_SHORT).show();
@@ -57,6 +61,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<MovieItemDao>> call, Throwable t) {
+                pbHome.setVisibility(View.INVISIBLE);
                 try {
                     Toast.makeText(getContext(), t + "", Toast.LENGTH_SHORT).show();
                 } catch (NullPointerException e) {}
@@ -66,6 +71,7 @@ public class HomeFragment extends Fragment {
 
     private void initInstances(View rootView) {
         gridview = (GridView) rootView.findViewById(R.id.grid_home);
+        pbHome = (ProgressBar) rootView.findViewById(R.id.pbHome);
     }
 
     private AdapterView.OnItemClickListener gridViewListener = new AdapterView.OnItemClickListener() {

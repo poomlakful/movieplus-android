@@ -5,36 +5,52 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textColor="#fff"
-            android:textSize="18sp"
-            android:text="Cinema"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="Cinema"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
         <Spinner
+            android:id="@+id/snCinema"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginRight="20dp"
             android:background="#787878"
-            android:layout_gravity="center_vertical"
-            android:textAlignment="center"
-            android:id="@+id/snCinema"
             android:entries="@array/cinema_list"
             android:prompt="@string/choose_cinema"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:textAlignment="center" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:layout_gravity="bottom"
         android:background="#2e2e2e" />
-    <ListView
-        android:id="@+id/lvShowtime"
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/pbShowtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_margin="20dp" />
+
+        <ListView
+            android:id="@+id/lvShowtime"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
 </LinearLayout>

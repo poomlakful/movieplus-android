@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ import retrofit2.Response;
 public class ShowtimeFragment extends Fragment {
     Spinner snCinema;
     ListView lvShowtime;
+    ProgressBar pbShowtime;
 
     List<ShowtimeItemDao> mShowtimeList;
 
@@ -47,11 +49,14 @@ public class ShowtimeFragment extends Fragment {
         snCinema = (Spinner) rootView.findViewById(R.id.snCinema);
         snCinema.setOnItemSelectedListener(snCinemaListener);
         lvShowtime = (ListView) rootView.findViewById(R.id.lvShowtime);
+        pbShowtime = (ProgressBar) rootView.findViewById(R.id.pbShowtime);
     }
 
     private AdapterView.OnItemSelectedListener snCinemaListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            pbShowtime.setVisibility(View.VISIBLE);
+            lvShowtime.setVisibility(View.INVISIBLE);
             Call<List<ShowtimeItemDao>> call = HttpManager.getInstance().getService().getMovieByCinemaId(i + 1);
             call.enqueue(showtimeCallback);
         }
@@ -75,6 +80,8 @@ public class ShowtimeFragment extends Fragment {
     private Callback<List<ShowtimeItemDao>> showtimeCallback = new Callback<List<ShowtimeItemDao>>() {
         @Override
         public void onResponse(Call<List<ShowtimeItemDao>> call, Response<List<ShowtimeItemDao>> response) {
+            pbShowtime.setVisibility(View.INVISIBLE);
+            lvShowtime.setVisibility(View.VISIBLE);
             mShowtimeList = response.body();
             if (mShowtimeList == null || mShowtimeList.size() == 0) {
                 Toast.makeText(getContext(), "Sory, No data to show.", Toast.LENGTH_SHORT).show();
@@ -85,6 +92,8 @@ public class ShowtimeFragment extends Fragment {
 
         @Override
         public void onFailure(Call<List<ShowtimeItemDao>> call, Throwable t) {
+            pbShowtime.setVisibility(View.INVISIBLE);
+            lvShowtime.setVisibility(View.VISIBLE);
             try {
                 Toast.makeText(getContext(), t + "", Toast.LENGTH_SHORT).show();
             } catch (NullPointerException e) {}

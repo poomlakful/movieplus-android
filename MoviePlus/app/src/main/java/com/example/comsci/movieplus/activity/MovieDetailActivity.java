@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +24,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MovieDetailActivity extends AppCompatActivity {
+    ProgressBar pbMovieDetail;
+    LinearLayout llMovieDetail;
     TextView tvMovieDetailName;
     YouTubePlayerView youtubePlayer;
     ImageView ivMovieDetail;
@@ -55,10 +59,12 @@ public class MovieDetailActivity extends AppCompatActivity {
     }
 
     private void fetchData() {
+        onFetchData(true);
         Call<MovieItemDao> call = HttpManager.getInstance().getService().getMovieById(movieId);
         call.enqueue(new Callback<MovieItemDao>() {
             @Override
             public void onResponse(Call<MovieItemDao> call, Response<MovieItemDao> response) {
+                onFetchData(false);
                 MovieItemDao movieItemDao = response.body();
                 if (movieItemDao == null) {
                     Toast.makeText(MovieDetailActivity.this, "Sory, No data to show.", Toast.LENGTH_SHORT).show();
@@ -69,7 +75,10 @@ public class MovieDetailActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<MovieItemDao> call, Throwable t) {
-                Toast.makeText(MovieDetailActivity.this, t + "", Toast.LENGTH_SHORT).show();
+                onFetchData(false);
+                try {
+                    Toast.makeText(MovieDetailActivity.this, t + "", Toast.LENGTH_SHORT).show();
+                } catch (NullPointerException e) { }
             }
         });
     }
@@ -107,6 +116,8 @@ public class MovieDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         movieId = intent.getIntExtra("id", 0);
 
+        pbMovieDetail = (ProgressBar) findViewById(R.id.pbMovieDetail);
+        llMovieDetail = (LinearLayout) findViewById(R.id.llMovieDetail);
         tvMovieDetailName = (TextView) findViewById(R.id.tvMovieDetailName);
         youtubePlayer = (YouTubePlayerView) findViewById(R.id.vvMovieDetail);
         ivMovieDetail = (ImageView) findViewById(R.id.ivMovieDetail);
@@ -117,6 +128,18 @@ public class MovieDetailActivity extends AppCompatActivity {
         tvMovieDetailDetail = (TextView) findViewById(R.id.tvMovieDetailDetail);
         btBuyNow = (Button) findViewById(R.id.btBuyNow);
         btBuyNow.setOnClickListener(btBuyNowListener);
+    }
+
+    private void onFetchData(boolean bool) {
+        if(bool) {
+            pbMovieDetail.setVisibility(View.VISIBLE);
+            llMovieDetail.setVisibility(View.INVISIBLE);
+            btBuyNow.setVisibility(View.INVISIBLE);
+        } else {
+            pbMovieDetail.setVisibility(View.INVISIBLE);
+            llMovieDetail.setVisibility(View.VISIBLE);
+            btBuyNow.setVisibility(View.VISIBLE);
+        }
     }
 
     private View.OnClickListener btBuyNowListener = new View.OnClickListener() {
