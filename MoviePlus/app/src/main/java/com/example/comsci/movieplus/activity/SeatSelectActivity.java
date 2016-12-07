@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import com.example.comsci.movieplus.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SeatSelectActivity extends AppCompatActivity {
 
     int movieId;
