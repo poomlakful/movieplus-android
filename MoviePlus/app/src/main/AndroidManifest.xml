@@ -44,6 +44,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.MovieDetailActivity" />
+        <activity android:name=".activity.SeatSelectActivity" />
+        <activity android:name=".activity.PaymentActivity" />
+        <activity android:name=".activity.ReadNFCActivity">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
