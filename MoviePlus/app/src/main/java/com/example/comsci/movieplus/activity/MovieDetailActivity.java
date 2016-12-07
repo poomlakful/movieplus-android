@@ -1,5 +1,6 @@
 package com.example.comsci.movieplus.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.comsci.movieplus.R;
 import com.example.comsci.movieplus.dao.MovieItemDao;
+import com.example.comsci.movieplus.fragment.HomeFragment;
 import com.example.comsci.movieplus.manager.HttpManager;
 import com.pierfrancescosoffritti.youtubeplayer.AbstractYouTubeListener;
 import com.pierfrancescosoffritti.youtubeplayer.YouTubePlayerView;
@@ -37,6 +39,8 @@ public class MovieDetailActivity extends AppCompatActivity {
     Button btBuyNow;
 
     int movieId;
+
+    final int SHOWTIME_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,10 +149,8 @@ public class MovieDetailActivity extends AppCompatActivity {
     private View.OnClickListener btBuyNowListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(MovieDetailActivity.this, SeatSelectActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra("id", movieId);
-            startActivity(intent);
+            setResult(SHOWTIME_CODE);
+            finish();
         }
     };
 }

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.comsci.movieplus.R;
 import com.example.comsci.movieplus.dao.ShowtimeItemDao;
+import com.example.comsci.movieplus.view.MyGridView;
 import com.example.comsci.movieplus.view.ShowtimeItemViewGroup;
 
 import java.util.List;
@@ -49,6 +50,7 @@ public class ShowtimeAdapter extends BaseAdapter {
         }
         try {
             ShowtimeItemDao dao = mShowtimeList.get(position);
+            item.setMovieID(dao.getMovieID());
             item.setTheatreName(dao.getTheatreName());
             item.setMovieName(dao.getName());
             item.setDirector(dao.getDirector());

@@ -1,6 +1,7 @@
 package com.example.comsci.movieplus.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.comsci.movieplus.R;
+import com.example.comsci.movieplus.activity.MovieDetailActivity;
+import com.example.comsci.movieplus.activity.SeatSelectActivity;
 import com.example.comsci.movieplus.adapter.TimeListAdapter;
 
 import java.util.List;
@@ -30,6 +33,9 @@ public class ShowtimeItemViewGroup extends FrameLayout {
     private TextView tvTime;
     private ImageView imageView;
     private MyGridView gvTimeList;
+
+    private int mMovieID;
+    private String mTheatreName;
 
     public ShowtimeItemViewGroup(Context context) {
         super(context);
@@ -69,7 +75,12 @@ public class ShowtimeItemViewGroup extends FrameLayout {
         gvTimeList = (MyGridView) findViewById(R.id.gvTimeList);
     }
 
+    public void setMovieID(int id) {
+        mMovieID = id;
+    }
+
     public void setTheatreName(String text) {
+        mTheatreName = text;
         tvTheatreName.setText(text);
     }
 
@@ -98,10 +109,14 @@ public class ShowtimeItemViewGroup extends FrameLayout {
         AdapterView.OnItemClickListener gvTimeListListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getContext(), timeList.get(i), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), SeatSelectActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("id", mMovieID);
+                intent.putExtra("time",timeList.get(i));
+                intent.putExtra("theatre",mTheatreName);
+                getContext().startActivity(intent);
             }
         };
         gvTimeList.setOnItemClickListener(gvTimeListListener);
-
     }
 }
