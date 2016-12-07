@@ -63,7 +63,7 @@ public class ReadNFCActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Payment done!", Toast.LENGTH_SHORT).show();
                 myTag = null;
                 dialog.dismiss();
-//                        finish();
+//                finish();
             }
         });
         builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
