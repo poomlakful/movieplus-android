@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,23 +18,34 @@ import com.example.comsci.movieplus.R;
 import com.example.comsci.movieplus.dao.MovieItemDao;
 import com.example.comsci.movieplus.manager.HttpManager;
 
+import org.w3c.dom.Text;
+
+import java.util.Date;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PaymentActivity extends AppCompatActivity {
+    private ProgressBar pbMovieDetail;
+    private LinearLayout llMovieDetail;
+    private TextView tvCinemaName;
+    private TextView tvDate;
+    private TextView tvTime;
+    private TextView tvTheatreName;
+    private TextView tvSeatName;
+    private TextView tvTotalPrice;
+    private TextView tvPaymentName;
+    private TextView tvPaymentDirector;
+    private TextView tvPaymentType;
+    private ImageView ivPaymentPoster;
+    private Button payment;
 
-    TextView tvPaymentName;
-    TextView tvPaymentDirector;
-    TextView tvPaymentType;
-    ImageView ivPaymentPoster;
-    Button payment;
-//    PendingIntent mPendingIntent;
-//    IntentFilter[] mIntentFilters;
-//    NfcAdapter nfcAdapter;
-//    Tag myTag;
-
-    int movieId;
+    private int mMovieId;
+    private String mTheatreName;
+    private String mTime;
+    private int mTotalPrice;
+    private String mSeatName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,48 +53,47 @@ public class PaymentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_payment);
         initInstances();
         fetchData();
-//        setNFC();
     }
 
 
-
-//    private void setNFC() {
-//        nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-//        if (nfcAdapter == null) {
-//            // Stop here, we definitely need NFC
-//            Toast.makeText(this, "This device doesn't support NFC.", Toast.LENGTH_LONG).show();
-//            finish();
-//        }
-//
-//        // create an intent with tag data and deliver to this activity
-//        mPendingIntent = PendingIntent.getActivity(this, 0,
-//                new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
-//
-//        // set an intent filter for all MIME data
-//        IntentFilter ndefIntent = new IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED);
-//        try {
-//            ndefIntent.addDataType("*/*");
-//            mIntentFilters = new IntentFilter[] { ndefIntent };
-//        } catch (Exception e) {
-//            Log.e("TagDispatch", e.toString());
-//        }
-//    }
-
     private void initInstances() {
-        //Set action bar
+        // Set action bar
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.action_bar);
         TextView tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvTitle.setText("Payment");
 
+        // get intent value
         Intent intent = getIntent();
-        movieId = intent.getIntExtra("id", 0);
+        mMovieId = intent.getIntExtra("id", 0);
+        mTime = intent.getStringExtra("time");
+        mTheatreName = intent.getStringExtra("theatre");
+        mTotalPrice = intent.getIntExtra("total", 0);
+        mSeatName = intent.getStringExtra("seat");
 
+        // find view
+        pbMovieDetail = (ProgressBar) findViewById(R.id.pbMovieDetail);
+        llMovieDetail = (LinearLayout) findViewById(R.id.llMovieDetail);
+        tvCinemaName = (TextView) findViewById(R.id.tvCinemaName);
+        tvDate = (TextView) findViewById(R.id.tvDate);
+        tvTime = (TextView) findViewById(R.id.tvTime);
+        tvTheatreName = (TextView) findViewById(R.id.tvTheatreName);
+        tvSeatName = (TextView) findViewById(R.id.tvSeatName);
+        tvTotalPrice = (TextView) findViewById(R.id.tvTotalPrice);
         tvPaymentName = (TextView) findViewById(R.id.tvPaymentName) ;
         tvPaymentDirector = (TextView) findViewById(R.id.tvPaymentDirector);
         tvPaymentType = (TextView) findViewById(R.id.tvPaymentType);
         ivPaymentPoster = (ImageView) findViewById(R.id.ivPaymentPoster);
         payment = (Button) findViewById(R.id.btnConfirm);
+
+        // set view
+        tvCinemaName.setText("Ladkabang Cinema");
+        String date = DateFormat.format("yyyy/MM/dd", new Date()).toString();
+        tvDate.setText(date);
+        tvTime.setText(mTime);
+        tvTheatreName.setText(mTheatreName);
+        tvSeatName.setText(mSeatName);
+        tvTotalPrice.setText("Total Price : "+mTotalPrice);
         payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,19 +101,19 @@ public class PaymentActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
-//                if(myTag != null)
-//                    PaymentDialog();
-////                else
-////                    Toast.makeText(getApplicationContext(), "Tap NFC payment and Select \"PAY NOW\" again ", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void fetchData() {
-        Call<MovieItemDao> call = HttpManager.getInstance().getService().getMovieById(movieId);
+        pbMovieDetail.setVisibility(View.VISIBLE);
+        llMovieDetail.setVisibility(View.INVISIBLE);
+        Call<MovieItemDao> call = HttpManager.getInstance().getService().getMovieById(mMovieId);
         call.enqueue(new Callback<MovieItemDao>() {
             @Override
             public void onResponse(Call<MovieItemDao> call, Response<MovieItemDao> response) {
+                pbMovieDetail.setVisibility(View.INVISIBLE);
+                llMovieDetail.setVisibility(View.VISIBLE);
                 MovieItemDao movieItemDao = response.body();
                 if (movieItemDao == null) {
                     Toast.makeText(PaymentActivity.this, "Sorry, No data to show.", Toast.LENGTH_SHORT).show();
@@ -113,69 +126,16 @@ public class PaymentActivity extends AppCompatActivity {
                         .load(movieItemDao.getPoster())
                         .placeholder(R.drawable.gray_image)
                         .into(ivPaymentPoster);
-                //wvMovieDetail.loadData(UtilityManager.getInstance().getTrailerHtml(movieItemDao.getTrailer()), "text/html", null);
             }
 
             @Override
             public void onFailure(Call<MovieItemDao> call, Throwable t) {
+                pbMovieDetail.setVisibility(View.INVISIBLE);
+                llMovieDetail.setVisibility(View.VISIBLE);
                 try {
                     Toast.makeText(PaymentActivity.this, t + "", Toast.LENGTH_SHORT).show();
                 } catch (NullPointerException e) {}
             }
         });
     }
-
-//    private void PaymentDialog(){
-//        AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this);
-//                builder.setMessage("well done!!!!");
-//                builder.setMessage("Confirm payment");
-//                builder.setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        Toast.makeText(getApplicationContext(), "Payment done!", Toast.LENGTH_SHORT).show();
-//                        myTag = null;
-//                        dialog.dismiss();
-////                        finish();
-//                    }
-//                });
-//                builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        dialog.dismiss();
-//                    }
-//                });
-//                builder.show();
-//    }
-//
-//    @Override
-//    protected void onNewIntent(Intent intent) {
-//        super.onNewIntent(intent);
-//        setIntent(intent);
-//        if(intent.getAction().equals(NfcAdapter.ACTION_TAG_DISCOVERED)){
-//            myTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-//        }
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        // creating pending intent:
-//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
-//        // creating intent receiver for NFC events:
-//        IntentFilter filter = new IntentFilter();
-//        filter.addAction(NfcAdapter.ACTION_TAG_DISCOVERED);
-//        filter.addAction(NfcAdapter.ACTION_NDEF_DISCOVERED);
-//        filter.addAction(NfcAdapter.ACTION_TECH_DISCOVERED);
-//        // enabling foreground dispatch for getting intent from NFC event:
-//        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-//        nfcAdapter.enableForegroundDispatch(this, pendingIntent, new IntentFilter[]{filter}, null);
-//    }
-//
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        // disabling foreground dispatch:
-//        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-//        nfcAdapter.disableForegroundDispatch(this);
-//    }
-
 }

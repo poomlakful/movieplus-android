@@ -43,11 +43,12 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvCinemaName"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:gravity="center"
@@ -68,6 +69,7 @@
                 android:weightSum="2">
 
                 <TextView
+                    android:id="@+id/tvDate"
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"
@@ -83,6 +85,7 @@
                     android:background="#616161" />
 
                 <TextView
+                    android:id="@+id/tvTime"
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"
@@ -98,46 +101,65 @@
                 android:layout_gravity="bottom"
                 android:background="#616161" />
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:orientation="horizontal"
-                android:padding="15dp">
+                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/ivPaymentPoster"
-                    android:layout_width="110dp"
-                    android:layout_height="130dp" />
+                <ProgressBar
+                    android:id="@+id/pbMovieDetail"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
                 <LinearLayout
+                    android:id="@+id/llMovieDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
 
-                    <TextView
-                        android:id="@+id/tvPaymentName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#fff"
-                        android:textSize="18sp" />
+                    <ImageView
+                        android:id="@+id/ivPaymentPoster"
+                        android:layout_width="110dp"
+                        android:layout_height="130dp" />
 
-                    <TextView
-                        android:id="@+id/tvPaymentDirector"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#fff"
-                        android:textSize="18sp" />
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tvPaymentType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#fff"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:id="@+id/tvPaymentName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#fff"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/tvPaymentDirector"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#fff"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/tvPaymentType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#fff"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TH/TH"
+                            android:textColor="#fff"
+                            android:textSize="18sp" />
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
+            </FrameLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -152,9 +174,9 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:background="#ed77ff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#ed77ff"
                     android:orientation="horizontal"
                     android:weightSum="2">
 
@@ -182,24 +204,28 @@
                         android:textColor="#000"
                         android:textSize="18sp" />
                 </LinearLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
                     android:layout_gravity="bottom"
                     android:background="#616161" />
+
                 <LinearLayout
-                    android:background="#f090ff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#f090ff"
                     android:orientation="horizontal"
                     android:weightSum="2">
 
                     <TextView
+                        android:id="@+id/tvTheatreName"
                         android:layout_width="0dp"
-                        android:layout_height="45dp"
+                        android:padding="5dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Seat Number"
+                        android:text="theatre name"
                         android:textColor="#000"
                         android:textSize="18sp" />
 
@@ -210,37 +236,42 @@
                         android:background="#616161" />
 
                     <TextView
+                        android:id="@+id/tvSeatName"
                         android:layout_width="0dp"
-                        android:layout_height="45dp"
+                        android:padding="5dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Price"
+                        android:text="seat name"
                         android:textColor="#000"
                         android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
+
             <TextView
-                android:background="#6c6c6c"
-                android:layout_marginTop="20dp"
-                android:textSize="18sp"
+                android:id="@+id/tvTotalPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:padding="10dp"
+                android:background="#6c6c6c"
                 android:gravity="center"
-                android:textColor="#000"
                 android:text="Total Price"
-                android:layout_width="150dp"
-                android:layout_height="30dp" />
+                android:textColor="#000"
+                android:textSize="18sp" />
+
             <Button
                 android:id="@+id/btnConfirm"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:background="#68fd4b"
+                android:gravity="center"
                 android:text="Pay Now"
                 android:textColor="#000"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="#68fd4b"
-                android:textSize="18sp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_width="150dp"
-                android:layout_height="30dp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

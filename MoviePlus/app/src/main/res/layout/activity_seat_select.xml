@@ -683,13 +683,14 @@
                 android:id="@+id/totalprice"
                 android:background="#6c6c6c"
                 android:layout_marginTop="20dp"
+                android:padding="10dp"
                 android:textSize="18sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textColor="#000"
                 android:text="Total Price"
-                android:layout_width="150dp"
-                android:layout_height="30dp" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
             <Button
                 android:id="@+id/btnConfirm"
                 android:text="Confirm"

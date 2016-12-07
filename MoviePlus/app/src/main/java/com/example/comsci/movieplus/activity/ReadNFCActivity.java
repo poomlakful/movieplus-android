@@ -1,5 +1,6 @@
 package com.example.comsci.movieplus.activity;
 
+import android.app.ActionBar;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -29,6 +31,20 @@ public class ReadNFCActivity extends AppCompatActivity {
         setContentView(R.layout.activity_read_nfc);
         imageIcon = (ImageView) findViewById(R.id.ivSuccessPayment);
         setNFC();
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                //Write your logic here
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void setNFC() {

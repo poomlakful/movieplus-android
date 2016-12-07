@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.comsci.movieplus.R;
 
@@ -14,11 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SeatSelectActivity extends AppCompatActivity {
+    private TextView tvTotalPrice;
 
-    int movieId;
-    int totalPrice = 0;
-    TextView totalprice;
-    List<String> seatlist;
+    private String mCinemaName;
+    private int mMovieId;
+    private String mTheatreName;
+    private String mTime;
+    private int totalPrice = 0;
+    private String mSeatName;
+    private List<String> seatlist = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,21 +39,39 @@ public class SeatSelectActivity extends AppCompatActivity {
         TextView tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvTitle.setText("Seat Select");
 
-        seatlist = new ArrayList<String>();
-        totalprice = (TextView)findViewById(R.id.totalprice);
-
+        // get intent value
         Intent intent = getIntent();
-        movieId = intent.getIntExtra("id", 0);
+        mCinemaName = intent.getStringExtra("cinema");
+        mMovieId = intent.getIntExtra("id", 0);
+        mTime = intent.getStringExtra("time");
+        mTheatreName = intent.getStringExtra("theatre");
 
+        // find view
+        tvTotalPrice = (TextView)findViewById(R.id.totalprice);
         Button btn = (Button) findViewById(R.id.btnConfirm);
+
+        // set view
+        tvTotalPrice.setText("Total Price : "+totalPrice);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mSeatName = seatlist.size() > 0 ? "" : "Not Select Seat";
+                for(int i = 0;i<seatlist.size();i++) {
+                    if(i == seatlist.size()-1) {
+                        mSeatName += seatlist.get(i);
+                    } else {
+                        mSeatName += seatlist.get(i)+", ";
+                    }
+                }
                 Intent intent = new Intent(SeatSelectActivity.this, PaymentActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("id", movieId);
+                intent.putExtra("id", mMovieId);
+                intent.putExtra("time",mTime);
+                intent.putExtra("theatre",mTheatreName);
+                intent.putExtra("total",totalPrice);
+                intent.putExtra("seat",mSeatName);
                 startActivity(intent);
-                //finish();
+                finish();
             }
         });
     }
@@ -74,7 +97,7 @@ public class SeatSelectActivity extends AppCompatActivity {
             seatlist.add(rs);
         }
 
-        totalprice.setText("Total Price : " + totalPrice);
+        tvTotalPrice.setText("Total Price : " + totalPrice);
     }
     public void SelectGreenSeat(View view){
         Button seat = (Button)view;
@@ -97,7 +120,7 @@ public class SeatSelectActivity extends AppCompatActivity {
             seatlist.add(rs);
         }
 
-        totalprice.setText("Total Price : " + totalPrice);
+        tvTotalPrice.setText("Total Price : " + totalPrice);
     }
 
     public void SelectBlueSeat(View view){
@@ -121,6 +144,6 @@ public class SeatSelectActivity extends AppCompatActivity {
             seatlist.add(rs);
         }
 
-        totalprice.setText("Total Price : " + totalPrice);
+        tvTotalPrice.setText("Total Price : " + totalPrice);
     }
 }

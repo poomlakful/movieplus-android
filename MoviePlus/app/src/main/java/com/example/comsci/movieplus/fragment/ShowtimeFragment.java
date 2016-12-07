@@ -31,11 +31,11 @@ import retrofit2.Response;
  */
 
 public class ShowtimeFragment extends Fragment {
-    Spinner snCinema;
-    ListView lvShowtime;
-    ProgressBar pbShowtime;
+    private Spinner snCinema;
+    private ListView lvShowtime;
+    private ProgressBar pbShowtime;
 
-    List<ShowtimeItemDao> mShowtimeList;
+    private List<ShowtimeItemDao> mShowtimeList;
 
     @Nullable
     @Override
