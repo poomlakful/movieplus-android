@@ -29,7 +29,7 @@ public class ShowtimeAdapter extends BaseAdapter {
     }
 
     public int getCount() {
-        return mShowtimeList.size();
+        return mShowtimeList == null ? 0 : mShowtimeList.size();
     }
 
     public Object getItem(int position) {

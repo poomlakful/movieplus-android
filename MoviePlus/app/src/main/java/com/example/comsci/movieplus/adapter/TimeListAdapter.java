@@ -26,7 +26,7 @@ public class TimeListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return mTimeList.size();
+        return mTimeList == null ? 0 : mTimeList.size();
     }
 
     @Override
