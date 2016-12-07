@@ -1,5 +1,6 @@
 package com.example.comsci.movieplus.activity;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
