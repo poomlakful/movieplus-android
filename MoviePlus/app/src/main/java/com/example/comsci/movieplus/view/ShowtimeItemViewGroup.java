@@ -36,6 +36,7 @@ public class ShowtimeItemViewGroup extends FrameLayout {
 
     private int mMovieID;
     private String mTheatreName;
+    private String mCinemaName;
 
     public ShowtimeItemViewGroup(Context context) {
         super(context);
@@ -84,6 +85,10 @@ public class ShowtimeItemViewGroup extends FrameLayout {
         tvTheatreName.setText(text);
     }
 
+    public void setCinemaName(String text) {
+        mCinemaName = text;
+    }
+
     public void setMovieName(String text) {
         tvMovieName.setText(text);
     }
@@ -114,6 +119,7 @@ public class ShowtimeItemViewGroup extends FrameLayout {
                 intent.putExtra("id", mMovieID);
                 intent.putExtra("time",timeList.get(i));
                 intent.putExtra("theatre",mTheatreName);
+                intent.putExtra("cinema",mCinemaName);
                 getContext().startActivity(intent);
             }
         };

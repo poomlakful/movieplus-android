@@ -22,11 +22,13 @@ import java.util.List;
 
 public class ShowtimeAdapter extends BaseAdapter {
     private Context mContext;
+    private String mCinemaName;
     private List<ShowtimeItemDao> mShowtimeList;
 
-    public ShowtimeAdapter(Context context, List<ShowtimeItemDao> st) {
+    public ShowtimeAdapter(Context context, List<ShowtimeItemDao> st, String cinemaName) {
         this.mContext = context;
         this.mShowtimeList = st;
+        this.mCinemaName = cinemaName;
     }
 
     public int getCount() {
@@ -52,6 +54,7 @@ public class ShowtimeAdapter extends BaseAdapter {
             ShowtimeItemDao dao = mShowtimeList.get(position);
             item.setMovieID(dao.getMovieID());
             item.setTheatreName(dao.getTheatreName());
+            item.setCinemaName(mCinemaName);
             item.setMovieName(dao.getName());
             item.setDirector(dao.getDirector());
             item.setTime(dao.getTime());

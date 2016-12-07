@@ -17,9 +17,9 @@ import java.util.List;
 public class SeatSelectActivity extends AppCompatActivity {
     private TextView tvTotalPrice;
 
-    private String mCinemaName;
     private int mMovieId;
     private String mTheatreName;
+    private String mCinemaName;
     private String mTime;
     private int totalPrice = 0;
     private String mSeatName;
@@ -41,10 +41,10 @@ public class SeatSelectActivity extends AppCompatActivity {
 
         // get intent value
         Intent intent = getIntent();
-        mCinemaName = intent.getStringExtra("cinema");
         mMovieId = intent.getIntExtra("id", 0);
         mTime = intent.getStringExtra("time");
         mTheatreName = intent.getStringExtra("theatre");
+        mCinemaName = intent.getStringExtra("cinema");
 
         // find view
         tvTotalPrice = (TextView)findViewById(R.id.totalprice);
@@ -70,6 +70,7 @@ public class SeatSelectActivity extends AppCompatActivity {
                 intent.putExtra("theatre",mTheatreName);
                 intent.putExtra("total",totalPrice);
                 intent.putExtra("seat",mSeatName);
+                intent.putExtra("cinema",mCinemaName);
                 startActivity(intent);
                 finish();
             }

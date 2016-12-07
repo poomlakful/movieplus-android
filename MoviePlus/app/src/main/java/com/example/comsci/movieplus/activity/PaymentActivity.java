@@ -43,6 +43,7 @@ public class PaymentActivity extends AppCompatActivity {
 
     private int mMovieId;
     private String mTheatreName;
+    private String mCinemaName;
     private String mTime;
     private int mTotalPrice;
     private String mSeatName;
@@ -70,6 +71,7 @@ public class PaymentActivity extends AppCompatActivity {
         mTheatreName = intent.getStringExtra("theatre");
         mTotalPrice = intent.getIntExtra("total", 0);
         mSeatName = intent.getStringExtra("seat");
+        mCinemaName = intent.getStringExtra("cinema");
 
         // find view
         pbMovieDetail = (ProgressBar) findViewById(R.id.pbMovieDetail);
@@ -87,7 +89,7 @@ public class PaymentActivity extends AppCompatActivity {
         payment = (Button) findViewById(R.id.btnConfirm);
 
         // set view
-        tvCinemaName.setText("Ladkabang Cinema");
+        tvCinemaName.setText(mCinemaName);
         String date = DateFormat.format("yyyy/MM/dd", new Date()).toString();
         tvDate.setText(date);
         tvTime.setText(mTime);

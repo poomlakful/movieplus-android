@@ -85,9 +85,11 @@ public class ShowtimeFragment extends Fragment {
             lvShowtime.setVisibility(View.VISIBLE);
             mShowtimeList = response.body();
             if (mShowtimeList == null || mShowtimeList.size() == 0) {
+                lvShowtime.setVisibility(View.INVISIBLE);
                 Toast.makeText(getContext(), "Sory, No data to show.", Toast.LENGTH_SHORT).show();
             } else {
-                lvShowtime.setAdapter(new ShowtimeAdapter(getContext(), mShowtimeList));
+                String cinemaName = snCinema.getSelectedItem().toString();
+                lvShowtime.setAdapter(new ShowtimeAdapter(getContext(), mShowtimeList, cinemaName));
                 lvShowtime.setOnItemClickListener(lvShowtimeListener);
             }
         }
@@ -95,7 +97,7 @@ public class ShowtimeFragment extends Fragment {
         @Override
         public void onFailure(Call<List<ShowtimeItemDao>> call, Throwable t) {
             pbShowtime.setVisibility(View.INVISIBLE);
-            lvShowtime.setVisibility(View.VISIBLE);
+            lvShowtime.setVisibility(View.INVISIBLE);
             try {
                 Toast.makeText(getContext(), t + "", Toast.LENGTH_SHORT).show();
             } catch (NullPointerException e) {}
