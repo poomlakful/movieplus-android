@@ -35,6 +35,8 @@ public class HomeFragment extends Fragment {
 
     List<MovieItemDao> mMovieList;
 
+    final int SHOWTIME_CODE = 1;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -80,7 +82,17 @@ public class HomeFragment extends Fragment {
             Intent intent = new Intent(getContext(), MovieDetailActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("id", mMovieList.get(position).getId());
-            startActivity(intent);
+            startActivityForResult(intent,SHOWTIME_CODE);
         }
     };
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == SHOWTIME_CODE) {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.MainContainer, new ShowtimeFragment())
+                    .commit();
+        }
+    }
 }

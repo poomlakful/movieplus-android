@@ -21,8 +21,7 @@ import java.util.List;
 
 public class HomeAdapter extends BaseAdapter {
     private Context mContext;
-
-    List<MovieItemDao> mMovieList;
+    private List<MovieItemDao> mMovieList;
 
     public HomeAdapter(Context c, List<MovieItemDao> m) {
         mContext = c;
@@ -30,7 +29,7 @@ public class HomeAdapter extends BaseAdapter {
     }
 
     public int getCount() {
-        return mMovieList.size();
+        return mMovieList == null ? 0 : mMovieList.size();
     }
 
     public Object getItem(int position) {
