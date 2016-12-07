@@ -77,7 +77,6 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
             <TextView
-                android:id="@+id/txt1"
                 android:layout_margin="20dp"
                 android:background="#fac72d"
                 android:gravity="center"
@@ -681,6 +680,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/totalprice"
                 android:background="#6c6c6c"
                 android:layout_marginTop="20dp"
                 android:textSize="18sp"

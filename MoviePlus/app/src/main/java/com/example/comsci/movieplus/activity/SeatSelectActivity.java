@@ -13,12 +13,9 @@ import com.example.comsci.movieplus.R;
 public class SeatSelectActivity extends AppCompatActivity {
 
     int movieId;
-    int Rseat[][] = { { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
-    int Gseat[] = { 0,0,0,0,0,0,0,0 };
-    int Bseat[] = { 0,0,0,0, };
+    int totalPrice = 0;
+    TextView totalprice;
+    List<String> seatlist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +30,9 @@ public class SeatSelectActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.action_bar);
         TextView tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvTitle.setText("Seat Select");
+
+        seatlist = new ArrayList<String>();
+        totalprice = (TextView)findViewById(R.id.totalprice);
 
         Intent intent = getIntent();
         movieId = intent.getIntExtra("id", 0);
@@ -53,48 +53,71 @@ public class SeatSelectActivity extends AppCompatActivity {
     public void SelectRedSeat(View view){
         Button seat = (Button)view;
         String rs = seat.getText().toString();
-        int i = 0, j = 0;
-        if(rs.charAt(0) == 'F') { i = 0; }
-        else if(rs.charAt(0) == 'E') { i = 1; }
-        else if(rs.charAt(0) == 'D') { i = 2; }
-        else { i = 3; }
-        j = Integer.parseInt(rs.substring(1)) - 1;
-        if (Rseat[i][j] == 0){
+
+        boolean checkRepeat = false;
+        for (String select : seatlist){
+            if (select.equals(rs)){
+                seat.setBackgroundResource(R.drawable.seatred);
+                totalPrice -= 100;
+                seatlist.remove(rs);
+                checkRepeat = true;
+                break;
+            }
+        }
+
+        if(!checkRepeat){
             seat.setBackgroundResource(R.drawable.seatredcheck);
-            Rseat[i][j] = 1;
+            totalPrice += 100;
+            seatlist.add(rs);
         }
-        else {
-            seat.setBackgroundResource(R.drawable.seatred);
-            Rseat[i][j] = 0;
-        }
+
+        totalprice.setText("Total Price : " + totalPrice);
     }
     public void SelectGreenSeat(View view){
         Button seat = (Button)view;
         String rs = seat.getText().toString();
-        int i = 0, j = 0;
-        j = Integer.parseInt(rs.substring(1)) - 1;
-        if (Rseat[i][j] == 0){
+
+        boolean checkRepeat = false;
+        for (String select : seatlist){
+            if (select.equals(rs)){
+                seat.setBackgroundResource(R.drawable.seatgreen);
+                totalPrice -= 150;
+                seatlist.remove(rs);
+                checkRepeat = true;
+                break;
+            }
+        }
+
+        if(!checkRepeat){
             seat.setBackgroundResource(R.drawable.seatgreencheck);
-            Rseat[i][j] = 1;
+            totalPrice += 150;
+            seatlist.add(rs);
         }
-        else {
-            seat.setBackgroundResource(R.drawable.seatgreen);
-            Rseat[i][j] = 0;
-        }
+
+        totalprice.setText("Total Price : " + totalPrice);
     }
 
     public void SelectBlueSeat(View view){
         Button seat = (Button)view;
         String rs = seat.getText().toString();
-        int i = 0, j = 0;
-        j = Integer.parseInt(rs.substring(1)) - 1;
-        if (Rseat[i][j] == 0){
+
+        boolean checkRepeat = false;
+        for (String select : seatlist){
+            if (select.equals(rs)){
+                seat.setBackgroundResource(R.drawable.seatblue);
+                totalPrice -= 200;
+                seatlist.remove(rs);
+                checkRepeat = true;
+                break;
+            }
+        }
+
+        if(!checkRepeat){
             seat.setBackgroundResource(R.drawable.seatbluecheck);
-            Rseat[i][j] = 1;
+            totalPrice += 200;
+            seatlist.add(rs);
         }
-        else {
-            seat.setBackgroundResource(R.drawable.seatblue);
-            Rseat[i][j] = 0;
-        }
+
+        totalprice.setText("Total Price : " + totalPrice);
     }
 }
